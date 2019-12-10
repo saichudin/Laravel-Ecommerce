@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index')->name('cust_home');
-Route::get('/product/{id}-{productName}','IndexController@viewProduct');
+Route::get('/product/{id}-{slug}','IndexController@viewProduct');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

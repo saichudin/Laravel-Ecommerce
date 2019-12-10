@@ -16,7 +16,7 @@
               <a href="#"><img class="card-img-top" src="{{ asset('img/lg.jpg') }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="viewproduct/{{$product->id}}">{{$product->name}}</a>
+                  <a href="product/{{$product->id}}-{{$product->slug}}">{{$product->name}}</a>
                 </h4>
                 <h5>${{$product->price}}</h5>
                 <p class="card-text">{{$product->description}}</p>

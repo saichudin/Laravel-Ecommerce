@@ -10,20 +10,20 @@ class IndexController extends Controller
     //
     private $product;
 
-    public function __consruct(Product $product)
+    public function __construct(Product $product)
     {
         $this->product = $product;
     }
 
     public function index()
     {
-        $products = Product::all();
+        $products = $this->product->all();
         return view('index', compact('products'));
     }
 
     public function viewProduct($id)
     {
-        $products = Product::find($id);
+        $products = $this->product->find($id);
         return view('view_product',compact('products')); 
     }
 }

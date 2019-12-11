@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'CustHomeController@index')->name('cust_home');
-
+Route::get('/', 'IndexController@index')->name('cust_home');
+Route::get('/product/{id}-{slug}','IndexController@viewProduct');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

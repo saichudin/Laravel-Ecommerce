@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="container">
+<div class="container pt-4">
 
 <div class="row">
 
@@ -11,11 +11,16 @@
     <div class="card mt-4">
       <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
       <div class="card-body">
-        <h3 class="card-title">{{$products->name}}</h3>
-        <h4>${{$products->price}}</h4>
-        <p class="card-text">{{$products->description}}</p>
+        <h3 class="card-title">{{$product->name}}</h3>
+        <h4>${{$product->price}}</h4>
+        <p class="card-text">{{$product->description}}</p>
         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
         4.0 stars
+        <br><br>
+        <form action="{{ route('cart.add', $product) }}" method="post" class="mb-4">
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-warning btn-sm" >Add to cart</button>
+        </form>
       </div>
     </div>
     <!-- /.card -->

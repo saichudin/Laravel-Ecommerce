@@ -1,64 +1,59 @@
 @extends('welcome')
 
 @section('content')
-<section class="htc__category__area ptb--100">
-            <div class="container">
+    <!-- Page Content -->
+    <div class="container pt-4">
 
-                <div class="htc__product__container">
-                    <div class="row">
-                        <div class="product__list clearfix mt--30">
-                            <!-- Start Single Category -->
-                            @foreach($products as $product) 
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="product/{{$product->id}}-{{$product->slug}}">
-                                            <img src="{{ asset('images/product/1.jpg') }}" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+        <div class="row">
 
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+            <div class="col-lg-12">
 
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">{{$product->name}}</a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li>${{$product->price}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-xs-4 mb-4">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">Item Two</a>
+                                </h4>
+                                <h5>$24.99</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
                             </div>
-                            @endforeach
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            
-                            <!-- End Single Category -->
+                            <div class="card-footer">
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                            </div>
                         </div>
                     </div>
+                    @foreach($products as $product)
+                        <div class="col-lg-3 col-md-3 col-xs-4 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="{{ asset('img/lg.jpg') }}" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{ route('product.show', $product) }}">{{$product->name}}</a>
+                                    <!-- <a href="viewproduct/{{$product}}">{{$product->name}}</a> -->
+                                    </h4>
+                                    <h5>${{$product->price}}</h5>
+                                    <p class="card-text">{{$product->description}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
                 </div>
+                <!-- /.row -->
+
             </div>
-</section>
+            <!-- /.col-lg-12 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
 @endsection

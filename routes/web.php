@@ -30,3 +30,8 @@ Route::group(['prefix' => 'cart', 'as' => 'cart.'], function() {
 Auth::routes();
 
 Route::get('/home', 'IndexController@index')->name('home');
+
+Route::get('/admin/customer', function(){
+    return View('test');
+ });
+

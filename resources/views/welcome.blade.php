@@ -39,6 +39,9 @@
               @endif
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/customer">Customer Panel</a>
+          </li>
           @guest
           <li class="nav-item">
             <a class="nav-link" href="{{ url('login') }}">Login</a>

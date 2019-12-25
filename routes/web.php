@@ -31,7 +31,23 @@ Auth::routes();
 
 Route::get('/home', 'IndexController@index')->name('home');
 
-Route::get('/admin/customer', function(){
-    return View('test');
- });
+// Route::get('/admin/customer', function(){
+//     return View('test');
+//  });
+
+// Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
+//     Route::get('customer', 'CustomerController@index')->name('appshell.customer.index');
+// });
+
+Route::get('admin/customer', 'CustomerController@index')->name('appshell.customer.index');
+
+Route::get('customer/product', 'CustomerProductController@index')->name('customer.product.index');
+Route::get('customer/product/create', 'CustomerProductController@create')->name('customer.product.create');
+Route::post('customer/product/store', 'CustomerProductController@store')->name('customer.product.store');
+
+
+
+// Route::resource('customer', 'CustomerController', ['names' => [
+//     'index' => 'admin.customer'
+// ]]);
 

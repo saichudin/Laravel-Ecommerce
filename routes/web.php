@@ -44,6 +44,9 @@ Route::get('admin/customer', 'CustomerController@index')->name('appshell.custome
 Route::get('customer/product', 'CustomerProductController@index')->name('customer.product.index');
 Route::get('customer/product/create', 'CustomerProductController@create')->name('customer.product.create');
 Route::post('customer/product/store', 'CustomerProductController@store')->name('customer.product.store');
+Route::get('customer/product/{product}/edit', 'CustomerProductController@edit')->name('customer.product.edit');
+Route::put('customer/product/{product}', 'CustomerProductController@update')->name('customer.product.update');
+
 
 
 

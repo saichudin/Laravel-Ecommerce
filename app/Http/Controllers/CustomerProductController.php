@@ -57,4 +57,27 @@ class CustomerProductController extends Controller
         return redirect(route('customer.product.index'));
     }
 
+    public function edit(Product $product)
+    {
+        return view('customer.product.edit', [
+            'product'    => $product,
+            'states'     => ProductStateProxy::choices()
+        ]);
+    }
+
+    public function update(Product $product, UpdateProduct $request)
+    {
+        try {
+            $product->update($request->all());
+
+            flash()->success(__(':name has been updated', ['name' => $product->name]));
+        } catch (\Exception $e) {
+            flash()->error(__('Error: :msg', ['msg' => $e->getMessage()]));
+
+            return redirect()->back()->withInput();
+        }
+
+        return redirect(route('customer.product.index'));
+    }
+
 }

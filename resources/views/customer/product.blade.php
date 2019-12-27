@@ -70,7 +70,7 @@
                         </td>
                         <td>
                             @can('edit products')
-                                <a href="{{ route('vanilo.product.edit', $product) }}"
+                                <a href="{{ route('customer.product.edit', $product) }}"
                                    class="btn btn-xs btn-outline-primary btn-show-on-tr-hover float-right">{{ __('Edit') }}</a>
                             @endcan
                             @can('delete products')

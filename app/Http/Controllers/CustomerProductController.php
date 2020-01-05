@@ -19,7 +19,16 @@ class CustomerProductController extends Controller
     public function index()
     {
         return view('customer.product', [
-            'products' => ProductProxy::paginate(100)
+            'products' => ProductProxy::where('user_id',auth()->user()->id)->paginate(100)
+        ]);
+    }
+
+    public function show(Product $product)
+    {
+        return view('customer.product.show', [
+            'product'    => $product,
+            'taxonomies' => TaxonomyProxy::all(),
+            'properties' => PropertyProxy::all()
         ]);
     }
 
@@ -77,6 +86,22 @@ class CustomerProductController extends Controller
             flash()->error(__('Error: :msg', ['msg' => $e->getMessage()]));
 
             return redirect()->back()->withInput();
+        }
+
+        return redirect(route('customer.product.index'));
+    }
+
+    public function destroy(Product $product)
+    {
+        try {
+            $name = $product->name;
+            $product->delete();
+
+            flash()->warning(__(':name has been deleted', ['name' => $name]));
+        } catch (\Exception $e) {
+            flash()->error(__('Error: :msg', ['msg' => $e->getMessage()]));
+
+            return redirect()->back();
         }
 
         return redirect(route('customer.product.index'));

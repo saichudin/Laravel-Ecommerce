@@ -39,7 +39,7 @@
                         </td>
                         <td>
                             <span class="font-lg mb-3 font-weight-bold">
-                                @can('view products')<a href="\">@endcan
+                                @can('view products')<a href="{{ route('customer.product.show', $product) }}">@endcan
                                     {{ $product->name }}
                                 @can('view products')</a>@endcan
                             </span>
@@ -74,9 +74,9 @@
                                    class="btn btn-xs btn-outline-primary btn-show-on-tr-hover float-right">{{ __('Edit') }}</a>
                             @endcan
                             @can('delete products')
-                                {!! Form::open(['route' => ['vanilo.product.destroy', $product],
+                                {!! Form::open(['route' => ['customer.product.destroy', $product],
                                         'method' => 'DELETE',
-                                        'data-confirmation-text' => __('Are you sure to delete :name?', ['name' => $product->name])
+                                        'onsubmit' => 'return confirm("are you sure delete ?")'
                                     ])
                                 !!}
                                 <button class="btn btn-xs btn-outline-danger btn-show-on-tr-hover float-right">{{ __('Delete') }}</button>

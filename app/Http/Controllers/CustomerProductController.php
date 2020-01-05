@@ -34,7 +34,9 @@ class CustomerProductController extends Controller
     public function store(CreateProduct $request)
     {
         try {
-            $product = ProductProxy::create($request->except('images'));
+            $productArray = $request->except('images');
+            $productArray['user_id'] = auth()->user()->id;
+            $product = ProductProxy::create($productArray);
             flash()->success(__(':name has been created', ['name' => $product->name]));
 
             try {

@@ -42,10 +42,12 @@ Route::get('/home', 'IndexController@index')->name('home');
 Route::get('admin/customer', 'CustomerController@index')->name('appshell.customer.index');
 
 Route::get('customer/product', 'CustomerProductController@index')->name('customer.product.index');
+Route::get('customer/product/{product}', 'CustomerProductController@show')->name('customer.product.show');
 Route::get('customer/product/create', 'CustomerProductController@create')->name('customer.product.create');
 Route::post('customer/product/store', 'CustomerProductController@store')->name('customer.product.store');
 Route::get('customer/product/{product}/edit', 'CustomerProductController@edit')->name('customer.product.edit');
 Route::put('customer/product/{product}', 'CustomerProductController@update')->name('customer.product.update');
+Route::delete('customer/product/{product}', 'CustomerProductController@destroy')->name('customer.product.destroy');
 
 
 

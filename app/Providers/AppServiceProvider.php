@@ -25,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $this->app->concord->registerModel(\Konekt\User\Contracts\User::class, \App\User::class);
+        //$this->app->concord->registerModel(\Vanilo\Product\Contracts\Product::class, \App\Product::class);
     }
 }

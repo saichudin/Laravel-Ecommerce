@@ -8,7 +8,10 @@ use App\User;
 
 class PurchaseOrder extends Model
 {
-    //
+    const STATUS_PENDING = 1;
+    const STATUS_PAID = 2;
+    const STATUS_SHIPPED = 3;
+    
     protected $fillable = [
         'order_item_id', 'status', 'seller_id',
     ];

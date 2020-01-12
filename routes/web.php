@@ -27,6 +27,11 @@ Route::group(['prefix' => 'cart', 'as' => 'cart.'], function() {
     Route::post('remove/{cart_item}', 'CartController@remove')->name('remove');
 });
 
+Route::group(['prefix' => 'checkout', 'as' => 'checkout.'], function() {
+    Route::get('show', 'CheckoutController@show')->name('show');
+    Route::post('submit', 'CheckoutController@submit')->name('submit');
+});
+
 Auth::routes();
 
 Route::get('/home', 'IndexController@index')->name('home');
@@ -48,7 +53,6 @@ Route::post('customer/product/store', 'CustomerProductController@store')->name('
 Route::get('customer/product/{product}/edit', 'CustomerProductController@edit')->name('customer.product.edit');
 Route::put('customer/product/{product}', 'CustomerProductController@update')->name('customer.product.update');
 Route::delete('customer/product/{product}', 'CustomerProductController@destroy')->name('customer.product.destroy');
-
 
 
 

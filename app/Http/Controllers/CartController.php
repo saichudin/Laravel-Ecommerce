@@ -19,7 +19,7 @@ class CartController extends Controller
 
     public function show()
     {
-        return view('cart_show');
+        return view('cart.cart_show');
     }
 
     public function remove(CartItem $cart_item)

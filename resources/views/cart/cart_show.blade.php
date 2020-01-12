@@ -97,7 +97,7 @@
 
                     <hr>
 
-                        <a href="" class="btn btn-block btn-primary">Proceed To Checkout</a>
+                        <a href="{{ route('checkout.show') }}" class="btn btn-block btn-primary">Proceed To Checkout</a>
                     </div>
                 </div>
             </div>

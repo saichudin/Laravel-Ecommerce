@@ -51,7 +51,8 @@ class CheckoutController extends Controller
         $order = $orderFactory->createFromCheckout($this->checkout);
         $this->cart->destroy();
 
+
         return view('checkout.thankyou', ['order' => $order]);
     }
-    
+
 }

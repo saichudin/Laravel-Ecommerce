@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\PurchaseOrder;
 use Vanilo\Order\Models\OrderItem;
 use Vanilo\Product\Models\Product;
+use Vanilo\Order\Models\Order;
 
 class InsertPurchaseOrderListener
 {
@@ -30,10 +31,10 @@ class InsertPurchaseOrderListener
     public function handle(OrderWasCreated $event)
     {
         $order = $event->getOrder();
-        $items = orderItem::where('order_id',$order->id)->get();
+        $items = Order::find($order->id)->items;
 
         foreach($items as $orderItem) {
-            $product = Product::where('id',$orderItem->product_id)->first();
+            $product = OrderItem::find($orderItem->product_id)->product;
             $po = new PurchaseOrder();
             $po->order_item_id = $orderItem->id;
             $po->seller_id = $product->user_id;

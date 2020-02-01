@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        'Vanilo\Order\Events\OrderWasCreated' => [
+            'App\Listeners\InsertPurchaseOrderListener',
+        ],
     ];
 
     /**

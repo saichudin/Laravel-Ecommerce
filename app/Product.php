@@ -2,10 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Vanilo\Framework\Models\Product as BaseProduct;
+use App\User;
 
-class Product extends Model
+class Product extends BaseProduct
 {
-    //
-    protected $table = 'products';
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

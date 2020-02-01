@@ -1,7 +1,7 @@
 @extends('appshell::layouts.default')
 
 @section('title')
-    {{ __('Products Test') }}
+    {{ __('Products') }}
 @stop
 
 @section('content')

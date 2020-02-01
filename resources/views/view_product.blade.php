@@ -12,6 +12,7 @@
       <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
       <div class="card-body">
         <h3 class="card-title">{{$product->name}}</h3>
+          Seller : <a href="/profile/{{$product->id}}" class="btn-sm btn-primary">{{$seller->name}}</a>
         <h4>${{$product->price}}</h4>
         <p class="card-text">{{$product->description}}</p>
         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>

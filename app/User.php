@@ -38,4 +38,9 @@ class User extends BaseUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function followers()
+    {
+        return $this->hasMany(Follower::class, 'user_id');
+    }
 }

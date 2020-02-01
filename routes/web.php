@@ -54,6 +54,10 @@ Route::get('customer/product/{product}/edit', 'CustomerProductController@edit')-
 Route::put('customer/product/{product}', 'CustomerProductController@update')->name('customer.product.update');
 Route::delete('customer/product/{product}', 'CustomerProductController@destroy')->name('customer.product.destroy');
 
+Route::get('profile/{id}', 'UserProfileController@show');
+
+Route::get('user_profile/{id}', 'UserProfileController@showUser');
+Route::post('user_profile/{id}', 'UserProfileController@update');
 
 
 // Route::resource('customer', 'CustomerController', ['names' => [

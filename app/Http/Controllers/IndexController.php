@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 //use Vanilo\Product\Models\Product;
 use Vanilo\Product\Contracts\Product;
@@ -36,8 +37,9 @@ class IndexController extends Controller
     public function viewProduct(Product $product)
     {
         //$products = $this->product->find($id);
-        // return view('view_product',compact('products')); 
-        return view('view_product', ['product' => $product]);
+        // return view('view_product',compact('products'));
+        $seller = User::find($product->user_id);
+        return view('view_product', ['product' => $product, 'seller' => $seller]);
     }
 
 

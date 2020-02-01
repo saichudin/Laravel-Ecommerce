@@ -29,6 +29,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+        @guest
           <li class="nav-item">
             <a class="nav-link" href="/">Shop</a>
           </li>
@@ -39,20 +40,30 @@
               @endif
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/admin/customer">Customer Panel</a>
-          </li> -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Customer Panel
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/customer/product">Product</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="/">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('cart.show') }}">Cart
+                    @if (Cart::isNotEmpty())
+                        <span class="badge badge-pill badge-secondary">{{ Cart::itemCount() }}</span>
+                    @endif
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Customer Panel
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/customer/product">Product</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/user_profile/{{ Auth::user()->id }}">My Profile</a>
+              </div>
+            </li>
+        @endguest
+
           @guest
           <li class="nav-item">
             <a class="nav-link" href="{{ url('login') }}">Login</a>
@@ -86,6 +97,7 @@
   <div class="container">
       @include('flash::message')
   </div>
+  <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
   @yield('content')
 
   <!-- Footer
@@ -96,7 +108,6 @@
   </footer> -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('js/bs/bootstrap.bundle.min.js') }}"></script>
 
 </body>

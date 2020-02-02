@@ -58,6 +58,7 @@ Route::get('profile/{id}', 'UserProfileController@show');
 
 Route::get('user_profile/{id}', 'UserProfileController@showUser');
 Route::post('user_profile/{id}', 'UserProfileController@update');
+Route::post('avatar_profile', 'UserProfileController@update_avatar');
 
 
 // Route::resource('customer', 'CustomerController', ['names' => [

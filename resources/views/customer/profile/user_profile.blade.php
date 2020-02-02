@@ -5,6 +5,25 @@
     <div class="container pt-4">
         <h1>My Profile</h1>
         <div class="row">
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="col-12">
                 <div class="card">
 
@@ -12,15 +31,15 @@
                         <div class="card-title mb-4">
                             <div class="d-flex justify-content-start">
                                 <div class="image-container">
-                                    <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                    <img src="/storage/avatars/{{ $user->avatar }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
                                 </div>
                                 <div class="userData ml-3">
-                                    <form action="#" method="post">
+                                    <form action="/avatar_profile" method="post" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="form-group">
                                             <label for="name" class="col-sm-5 control-label">Change Avatar</label>
                                             <div class="col-sm-12">
-                                                <input type="file" id="customFile" >
+                                                <input type="file" id="customFile" name="avatar">
                                             </div>
                                         </div>
 

@@ -54,6 +54,11 @@ Route::get('customer/product/{product}/edit', 'CustomerProductController@edit')-
 Route::put('customer/product/{product}', 'CustomerProductController@update')->middleware('auth')->name('customer.product.update');
 Route::delete('customer/product/{product}', 'CustomerProductController@destroy')->middleware('auth')->name('customer.product.destroy');
 
+Route::get('customer/order', 'CustomerOrderController@index')->middleware('auth')->name('customer.order.index');
+Route::get('customer/order/{order}', 'CustomerOrderController@show')->name('customer.order.show');
+Route::put('customer/order/{order}', 'CustomerOrderController@update')->middleware('auth')->name('customer.order.update');
+Route::delete('customer/order/{order}', 'CustomerOrderController@destroy')->middleware('auth')->name('customer.order.destroy');
+
 Route::get('profile/{id}', 'UserProfileController@show');
 
 Route::get('user_profile/{id}', 'UserProfileController@showUser')->middleware('auth');

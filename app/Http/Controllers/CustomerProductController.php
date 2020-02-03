@@ -20,9 +20,6 @@ class CustomerProductController extends Controller
     //
     public function index()
     {
-        //$user->givePermissionTo('edit products');
-        //$users = User::permission('edit products')->get();
-        //dd($users);
         return view('customer.product', [
             'products' => ProductProxy::where('user_id',auth()->user()->id)->paginate(100)
         ]);

@@ -32,6 +32,12 @@ Route::group(['prefix' => 'checkout', 'as' => 'checkout.'], function() {
     Route::post('submit', 'CheckoutController@submit')->name('submit');
 });
 
+Route::group(['prefix' => 'order', 'as' => 'order.'], function() {
+    Route::get('order', 'OrderController@index')->name('index');
+    Route::get('/{order}', 'OrderController@show')->name('show');
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'IndexController@index')->name('home');

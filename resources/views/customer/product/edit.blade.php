@@ -16,7 +16,7 @@
                 {{ __('Product Data') }}
             </div>
             <div class="card-block">
-                @include('vanilo::product._form')
+                @include('customer.product.form')
             </div>
 
             <div class="card-footer">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="col-12 col-lg-4 col-xl-3">
-        @include('vanilo::product._edit_images')
+        @include('customer.product.edit_images')
     </div>
 
 </div>

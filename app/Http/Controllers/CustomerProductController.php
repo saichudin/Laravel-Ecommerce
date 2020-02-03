@@ -12,6 +12,8 @@ use Vanilo\Framework\Contracts\Requests\CreateProduct;
 use Vanilo\Framework\Contracts\Requests\UpdateProduct;
 use Vanilo\Properties\Models\PropertyProxy;
 use Vanilo\Framework\Http\Controllers\ProductController;
+use Auth;
+use App\User;
 
 class CustomerProductController extends Controller
 {

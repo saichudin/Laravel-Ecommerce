@@ -12,7 +12,7 @@
                     {{ __('Product Details') }}
                 </div>
                 <div class="card-block">
-                    @include('vanilo::product._form')
+                    @include('customer.product.form')
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-success">{{ __('Create product') }}</button>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="col-12 col-lg-4 col-xl-3">
-            @include('vanilo::product._create_images')
+            @include('customer.product.create_images')
         </div>
 
     {!! Form::close() !!}

@@ -56,8 +56,8 @@
                 Customer Panel
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/customer/product">Product</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="{{route('customer.product.index')}}">Products</a>
+                <a class="dropdown-item" href="/customer/order">Orders</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/user_profile/{{ Auth::user()->id }}">My Profile</a>
               </div>

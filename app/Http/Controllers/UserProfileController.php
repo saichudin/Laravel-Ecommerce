@@ -13,7 +13,7 @@ class UserProfileController extends Controller
     public function show($id)
     {
         $user = User::find($id)->first();
-        $products = ProductProxy::where('user_id',$id)->get();
+        $products = ProductProxy::where('user_id',$id)->where('state','active')->get();
         return view('customer.profile.profile', compact('user','products'));
     }
 
